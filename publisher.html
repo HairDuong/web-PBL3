@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>MQTT Device Control</title>
+    <link rel="stylesheet" href="publisher.css" />
+    <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+    <style>
+        /* CSS để tăng kích thước bảng */
+        table {
+            width: 100%; /* Chiếm toàn bộ chiều rộng */
+            border-collapse: collapse; /* Xóa khoảng cách giữa các ô */
+            font-size: 1.5em; /* Tăng kích thước chữ */
+        }
+        th, td {
+            padding: 15px; /* Thêm khoảng cách bên trong ô */
+            text-align: center; /* Căn giữa nội dung */
+            border: 2px solid #000; /* Thêm viền cho ô */
+        }
+        th {
+            background-color: #f2f2f2; /* Màu nền cho tiêu đề */
+        }
+    </style>
+</head>
+<body>
+    <h1>Do an PBL3</h1>
+    <div class="line"></div>
+    
+    <ul class="wrapper">
+        <!-- Khu vực điều khiển thiết bị 1 -->
+        <h1>Thiết bị 1</h1>
+        <li class="form-row">
+            <button type="button" id="toggleDevice1Btn"></button>
+        </li>
+        
+        <!-- Khu vực điều khiển thiết bị 2 -->
+        <h1>Thiết bị 2</h1>
+        <li class="form-row">
+            <button type="button" id="toggleDevice2Btn"></button>
+        </li>
+        
+        <!-- Khu vực điều khiển thiết bị 3 -->
+        <h1>Thiết bị 3</h1>
+        <li class="form-row">
+            <button type="button" id="toggleDevice3Btn"></button>
+        </li>
+
+    </li>
+    <!-- Khu vực điều khiển thiết bị 3 -->
+    <h1>Thiết bị 4</h1>
+    <li class="form-row">
+        <button type="button" id="toggleDevice4Btn"></button>
+    </li>
+    </ul>
+
+    <!-- Bảng hiển thị nhiệt độ, độ ẩm và nồng độ -->
+    <h2>Thông tin cảm biến</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Nhiệt độ (°C)</th>
+                <th>Độ ẩm (%)</th>
+                <th>Nồng độ</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td id="temperature">--</td>
+                <td id="humidity">--</td>
+                <td id="concentration">--</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script src="publisher.js"></script>
+</body>
+</html>

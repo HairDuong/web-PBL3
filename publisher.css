@@ -1,0 +1,146 @@
+/* Reset toàn cục */
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Thiết lập cho body */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f2f5;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+/* Tiêu đề chính */
+h1 {
+  text-align: center;
+  color: #4caf50;
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 2.5em;
+  margin-bottom: 30px;
+  border: none;
+}
+
+/* Dòng kẻ */
+.line {
+  border: 3px solid #f44336;
+  width: 200px;
+  margin: 0 auto;
+}
+
+/* Wrapper cho vùng điều khiển thiết bị */
+.wrapper {
+  background-color: white;
+  list-style-type: none;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+/* Tiêu đề của các thiết bị */
+.wrapper h1 {
+  text-align: center;
+  color: #333; /* Màu chữ của tiêu đề */
+  padding: 10px;
+  font-size: 1.8em;
+  margin-bottom: 15px;
+  border: none; /* Loại bỏ khung */
+  background-color: transparent; /* Nền trong suốt */
+}
+
+/* Styling cho các nút bấm và hàng */
+.form-row {
+  display: flex;
+  justify-content: center;
+  padding: 1em;
+}
+
+.form-row > button {
+  padding: 1.2em 1.5em;
+  margin: 15px 0;
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
+  font-size: 1.3em;
+  border: 0;
+  flex: 1;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.form-row > button.on {
+  background-color: #f44336;
+  color: white;
+}
+
+.form-row > button.off {
+  background-color: #4caf50;
+  color: white;
+}
+
+.form-row > button:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+/* Bảng hiển thị thông tin cảm biến */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1.5em;
+  margin-top: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+  padding: 15px;
+  text-align: center;
+  border: 2px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+  color: #333;
+  font-weight: bold;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Tiêu đề thông tin cảm biến */
+h2 {
+  text-align: center;
+  font-size: 2em;
+  margin: 30px 0 20px;
+  color: #4caf50;
+}
+
+/* Phong cách đáp ứng trên di động */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2em;
+  }
+
+  .form-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .form-row > button {
+    width: 100%;
+  }
+}
