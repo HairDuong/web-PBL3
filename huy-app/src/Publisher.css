@@ -18,7 +18,7 @@ body {
   padding: 20px;
 
   /* Thêm hình nền */
-  background-image: url('C:/Users/ADMIN/Downloads/web test/huy-app/anhnen.jpg'); /* Đường dẫn tới hình ảnh */
+  background-image: url('./anhnen.jpg'); /* Đường dẫn tới hình ảnh */
   background-size: cover; /* Tự động căn chỉnh kích thước nền để phủ toàn bộ trang */
   background-repeat: no-repeat; /* Không lặp lại hình nền */
   background-position: center center; /* Canh giữa hình nền */
@@ -58,12 +58,17 @@ h1 {
 /* Phần trạng thái quạt */
 .fan-status {
   background-color: white;
-  padding: 20px;
-  margin-bottom: 20px;
+  padding: 5px 20px; /* Giảm padding trên/dưới, giữ nguyên padding trái/phải */
+  margin-bottom: 15px;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: left;
+  max-width: 250px; /* Giữ chiều rộng khung như trước */
+  height: 70px; /* Giới hạn chiều cao của khung */
+  overflow: hidden; /* Đảm bảo nội dung không tràn ra ngoài */
 }
+
+
 
 /* Phần hiển thị thời gian thực */
 .real-time {
@@ -209,4 +214,49 @@ body::before {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5); /* Độ mờ với màu đen */
   z-index: -1; /* Đặt dưới các nội dung khác */
+}
+/* CSS cho khu vực đặt thời gian */
+.time-setting {
+  background-color: #f4f4f4; /* Màu nền nhẹ */
+  padding: 20px; /* Khoảng cách xung quanh */
+  border-radius: 15px; /* Bo tròn các góc */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Tạo bóng nhẹ cho khu vực */
+  margin-top: 20px; /* Khoảng cách trên */
+  width: fit-content; /* Đảm bảo khu vực vừa vặn với nội dung */
+  margin: 0 auto; /* Căn giữa */
+}
+
+/* CSS cho các input */
+.time-inputs label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.time-inputs input {
+  width: 50px;
+  padding: 5px;
+  margin-right: 10px;
+  border-radius: 5px; /* Bo tròn các ô nhập */
+  border: 1px solid #ccc; /* Đường viền xung quanh */
+  font-size: 16px;
+}
+
+.time-inputs input[type="number"] {
+  width: 60px;
+}
+
+/* CSS cho nút gửi thời gian */
+button {
+  background-color: #4CAF50; /* Màu nền của nút */
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px; /* Bo tròn nút */
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #45a049; /* Hiệu ứng khi hover */
 }

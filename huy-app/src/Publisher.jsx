@@ -4,15 +4,20 @@ import axios from "axios"; // Import axios để gửi yêu cầu HTTP
 
 const App = () => {
   const [mqttClient, setMqttClient] = useState(null);
+  const [targetHour, setTargetHour] = useState(0); // Lưu giờ
+  const [targetMinute, setTargetMinute] = useState(0); // Lưu phút
+  const [targetSecond, setTargetSecond] = useState(0); // Lưu giây
   const [sensorData, setSensorData] = useState({
     temperature: "--",
     humidity: "--",
     concentration: "--",
     foodRate: "--",
-    waterRate: "--",
+    waterRate: "--",    
   });
+  
+
   const [deviceStates, setDeviceStates] = useState({
-    quat: "off",
+    quat: "off",  
     maybom: "off",
     den: "off",
     servo: "off",
@@ -119,12 +124,23 @@ const App = () => {
       [device]: newState,
     }));
   };
+  
 
   const deviceNames = {
     quat: "Quạt",
     maybom: "Máy bơm",
     den: "Đèn",
     servo: "Servo",
+  };
+
+  // Hàm gửi thời gian tới các topic MQTT
+  const handleTimeSubmit = () => {
+    if (mqttClient) {
+      mqttClient.publish("targetHour", targetHour.toString());
+      mqttClient.publish("targetMinute", targetMinute.toString());
+      mqttClient.publish("targetSecond", targetSecond.toString());
+      console.log(`Đã gửi thời gian: ${targetHour}:${targetMinute}:${targetSecond}`);
+    }
   };
 
   return (
@@ -154,6 +170,47 @@ const App = () => {
           </div>
         ))}
       </div>
+
+      {/* Form nhập thời gian */}
+      <div className="time-setting">
+        <h2> Đặt thời gian cho ăn</h2>
+        <div className="time-inputs">
+          <label>
+            Giờ:
+            <input
+              type="number"
+              value={targetHour}
+              onChange={(e) => setTargetHour(Number(e.target.value))}
+              min="0"
+              max="23"
+            />
+          </label>
+          <label>
+            Phút:
+            <input
+              type="number"
+              value={targetMinute}
+              onChange={(e) => setTargetMinute(Number(e.target.value))}
+              min="0"
+              max="59"
+            />
+          </label>
+          <label>
+            Giây:
+            <input
+              type="number"
+              value={targetSecond}
+              onChange={(e) => setTargetSecond(Number(e.target.value))}
+              min="0"
+              max="59"
+            />
+          </label>
+        </div>
+        <button onClick={handleTimeSubmit}>Gửi Thời Gian</button>
+      </div>
+
+
+      
 
       {/* Khung thông tin cảm biến */}
       <div className="sensor-info">
